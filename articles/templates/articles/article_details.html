@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="article_details">
+    <div style="margin-top: 40px; left:12.6%" class="article">
+        <img style="width: 100%; " src="{{ article.thumb.url }}"/>
+    <h2>{{ article.title }}</h2>    
+    <p>{{ article.body}}</p>
+    <p>{{ article.date }}</p>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

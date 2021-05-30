@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="create-article">
+    <h2 style="margin-top: 50px;
+    margin-left: 19px; margin-bottom: 10px;;">Create a new djangosha article!</h2>
+    <form class="site-form" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+        <!-- In the above field, the enctype is for encoding the uploaded file and whenever we upload a file, we need to include this enctype line -->
+        {% csrf_token %}
+        {{form}}      <!--the form in this line is the key name in the dictionary parameter given in the render statement of create article method inside the views.py file-->
+    <input type="submit" value="Create">
+    </form>
+</div>
+<script src="{% static 'slugify.js' %}"></script>
+{% endblock %}

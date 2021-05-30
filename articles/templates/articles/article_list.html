@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1 style="margin-top:40px; margin-bottom:30px;">Article List</h1>
+    <div class ="articles">
+        <!-- /*Here this 'articles' refers to the key of the dictionary defined in the return function of the views.py file*/ -->
+        {% for article in articles %}   
+        <!--here 'article' is just a variable used for iteration just like 'i' which is used in the for loops--> 
+        <div class="article">
+            <h2><a href="{% url 'articles:details' slug=article.slug %}">{{article.title}}</a></h2>
+            <p>{{article.snippet}}</p> <!--Here the snippet method is called and hence, only the first 50 characters will be returned-->
+            <p>{{article.date}}</p>  
+            <p class="author">added by {{article.author.username}}</p> 
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

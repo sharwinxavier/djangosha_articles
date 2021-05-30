@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h1>Login</h1>
+<form class="site-form" action="{% url 'accounts:login' %}" method="post">
+    {% csrf_token %} <!--to avoid the CSRF token error which makes sure that, the request is from our site and not from outside-->
+{{form}}
+{% if request.GET.next %}
+   <input type="hidden" name="next" value="{{request.GET.next}}">
+   <!--the above if statement checks whether the 'next' query is present in the address bar and if it is 
+    present, then sets the value of the hidden input field equal to the 'next' query in the address bar itself -->
+    {% endif %}
+<input type="submit" name="" value="Login">
+</form>
+{% endblock %}
