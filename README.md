@@ -1,3 +1,1 @@
-"# djangosha" 
-"# djangosha" 
-"# djangosha_blog" 
+"# djangosha_articles" 
